@@ -1,0 +1,5 @@
+/data/raw/
+/data/processed
+/data/__pycache__
+
+/model/__pycache__
