@@ -5,6 +5,8 @@ from pathlib import Path
 import data.data_processor as data_processor
 import model.baseline as baseline
 
+from model.RLModel import RLModel
+
 def init_env_vars():
     if 'INITIALIZED' not in os.environ:
         os.environ['INITIALIZED'] = '1'
@@ -22,4 +24,6 @@ def init_env_vars():
 init_env_vars()
 dataset = data_processor.process_data()
 print("[SYSTEM] Starting training")
-baseline.train(dataset)
+model = RLModel(dataset, batch_size=4)
+model.train(epochs=5)
+#baseline.train(dataset)
